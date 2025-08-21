@@ -1,0 +1,28 @@
+.flexContainer{
+  // min-height: 30%;
+  // max-height: 30%;
+  //height: 50px; //TODO: come back and figure out how to get the nav bar to be the correct size
+  display: flex;
+  justify-content: center;
+}
+
+.flexItem{
+  margin: 5%;
+}
+
+:host{
+  position: fixed;
+  width: 100%;
+  top: 0; 
+  z-index: 999;//super funny bug was fixed here
+}
+
+body {
+  padding-top: 60px;
+}
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}

@@ -1,0 +1,40 @@
+:host{
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper{
+    height: 100%;
+    width: 95%;//not sure why this is happenning, causing slight ui bug with border
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    height: 17%;
+}
+
+.item{
+    padding: 2% 5%;
+    flex-basis: 75%;
+}
+
+.dialogButton{
+    @extend .item;
+    margin: 1% 5% 
+}
+
+.title{
+    @extend .row;
+    color: white;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}

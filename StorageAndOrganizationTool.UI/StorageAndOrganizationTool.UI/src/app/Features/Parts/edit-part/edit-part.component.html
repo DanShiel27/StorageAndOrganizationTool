@@ -1,0 +1,61 @@
+<form [formGroup]="partForm" class="wrapper">
+
+    <div class="title">
+        <h3>Part of Id: {{part.id}}</h3>
+    </div>
+        
+    <div class="row">
+        <mat-form-field class="item">
+            <mat-label>Name: </mat-label>
+            <input matInput formControlName="name"/>
+        </mat-form-field>
+        
+        <mat-form-field class="item">
+            <mat-label>Description: </mat-label>
+            <input matInput formControlName="description"/>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+         <mat-form-field class="item">
+            <mat-label>Length: </mat-label>
+            <input matInput formControlName="length"/>
+        </mat-form-field>
+
+        <mat-form-field class="item">
+            <mat-label>Width: </mat-label>
+            <input matInput formControlName="width"/>
+        </mat-form-field>
+    </div>
+        
+
+    <div class="row">
+        <mat-form-field class="item">
+            <mat-label>Height: </mat-label>
+            <input matInput formControlName="height"/>
+        </mat-form-field>
+
+        <mat-form-field class="item">
+            <mat-label>Manufacturer Id: </mat-label>
+            <input matInput formControlName="manufacturerId"/>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field class="item">
+            <mat-label>Rebrickable Id: </mat-label>
+            <input matInput formControlName="rebrickableId"/>
+        </mat-form-field>
+
+        <mat-form-field class="item">
+            <mat-label>BrickLink Id: </mat-label>
+            <input matInput formControlName="bricklinkId"/>
+        </mat-form-field>
+    </div>
+        
+    <div class="row">
+        <button mat-flat-button color="primary" (click)="EditPart()" class="dialogButton">submit</button>
+        <button mat-flat-button color="primary" (click)="closeDialog()" class="dialogButton">Cancel</button>
+    </div>
+         
+    </form>

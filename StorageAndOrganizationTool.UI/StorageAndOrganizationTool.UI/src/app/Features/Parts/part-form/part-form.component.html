@@ -1,0 +1,60 @@
+
+<form [formGroup]="partForm" (ngSubmit)="addPart()">
+    <div class="wrapper">
+        <div class="row">
+            <h2 class="title">Add a new part</h2>
+        </div>
+        
+        <div class="row">
+            <mat-form-field class="formItem">
+                <mat-label>Name: </mat-label>
+                <input matInput formControlName="name" />
+            </mat-form-field>
+            
+            <mat-form-field class="formItem">
+                <mat-label>Description: </mat-label>
+                <input matInput formControlName="description"/>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="formItem">
+                <mat-label>Length: </mat-label>
+                <input matInput formControlName="length"/>
+            </mat-form-field>
+
+            <mat-form-field class="formItem">
+                <mat-label>Width: </mat-label>
+                <input matInput formControlName="width"/>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="formItem">
+                <mat-label>Height: </mat-label>
+                <input matInput formControlName="height"/>
+            </mat-form-field>
+
+            <mat-form-field class="formItem">
+                <mat-label>Manufacturer Id: </mat-label>
+                <input matInput formControlName="manufacturerId"/>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="formItem">
+                <mat-label>Rebrickable Id: </mat-label>
+                <input matInput formControlName="rebrickableId"/>
+            </mat-form-field>
+
+            <mat-form-field class="formItem">
+                <mat-label>BrickLink Id: </mat-label>
+                <input matInput formControlName="bricklinkId"/>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <button mat-raised-button type="submit" class="submitButton">submit</button>
+    </div>
+</form>

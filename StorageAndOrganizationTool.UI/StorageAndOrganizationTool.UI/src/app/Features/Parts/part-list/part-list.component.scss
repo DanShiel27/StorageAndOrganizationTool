@@ -1,0 +1,39 @@
+
+
+.partTable{
+  margin: auto;
+  min-width: 85%;
+  
+}
+
+th, td {
+  padding: 1%;
+  text-align: center;
+  font-size: 135%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.centered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.refreshPartButton{
+  height: 20%;
+  width: 10%;
+  padding: 1%;
+  margin-bottom: 2%;
+}
+
+.activityButtons{
+  background-color: gray;
+  font-size: 80%;
+}
+
+.centered > button:active {
+  opacity: 0.5;
+}

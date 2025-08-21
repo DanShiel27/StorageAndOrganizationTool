@@ -1,0 +1,23 @@
+//TODO: styling is really terrible here, need to get better at styling for dynamic screens
+.wrapper{
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+    margin: 2%;
+    padding: 2%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    // border-style: solid;
+    // border-color: white;
+    flex-grow: 1;
+    //padding: 2%;
+}
