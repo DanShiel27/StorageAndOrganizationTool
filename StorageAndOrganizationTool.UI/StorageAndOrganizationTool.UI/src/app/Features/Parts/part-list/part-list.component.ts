@@ -2,18 +2,21 @@ import { Component, DestroyRef, inject, OnInit} from '@angular/core';
 import { PartService } from '../Services/partservice.service';
 import { PartDto } from '../../../Core/PartModels';
 import { map, take } from 'rxjs';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmComponent } from '../confirm/confirm.component';
 import { EditPartComponent } from '../edit-part/edit-part.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: 'app-part-list',
   standalone: true,
-  imports: [MatSlideToggleModule, MatTableModule, MatButtonModule],
+  imports: [MatTableModule, MatButtonModule, MatInputModule, FormsModule, MatFormFieldModule, MatIconModule],
   templateUrl: './part-list.component.html',
   styleUrl: './part-list.component.scss'
 })
@@ -26,6 +29,10 @@ export class PartListComponent implements OnInit {
 
   dataSource = new MatTableDataSource<PartDto>([]);
 
+  //filterString = new FormControl<string|null>('');
+
+  filterString: string = '';
+
   dataSource$ = this.partService.getPartListObservable().pipe(
     takeUntilDestroyed(this.destroyRef),
     map(list =>{
@@ -33,6 +40,20 @@ export class PartListComponent implements OnInit {
     })
   ).subscribe()
 
+  filterInputHandler($event: KeyboardEvent) {
+    if($event.key === "Enter"){
+      this.filter();
+    }
+  }
+
+  clearFilter() {
+    this.filterString = '';
+    this.filter();
+  }
+
+  filter() {
+    this.dataSource.filter = this.filterString.trim().toLocaleLowerCase();
+  }
   
   getPart(){
     this.partService.getParts();
@@ -73,6 +94,4 @@ export class PartListComponent implements OnInit {
   ngOnInit(): void {
     this.partService.getParts();
   }
-
-  
 }

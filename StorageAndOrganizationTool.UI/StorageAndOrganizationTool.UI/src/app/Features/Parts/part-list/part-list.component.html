@@ -1,11 +1,24 @@
 <h2>List of Parts</h2>
 
-<!-- <div class="centered">
-    <button (click)="getPart()">get parts</button>
-</div> -->
-
 <div class="centered">
-    <button mat-raised-button (click)="getPart()" class="refreshPartButton">Refresh Part List</button>
+    <div class="centeredItemsFirst">
+        <mat-form-field subscriptSizing="dynamic" class="searchInput">
+            <mat-label>Search</mat-label>
+            <input matInput type="text" [(ngModel)]="filterString" (keyup)="filterInputHandler($event)">
+            <!-- <button matSuffix mat-Button aria-label="Clear" (click)="clearFilter()">
+                <mat-icon>close</mat-icon>
+            </button> -->
+        </mat-form-field> 
+         
+    </div>
+
+    <div class="centeredItemsOthers">
+        <button mat-raised-button type="button" (click)="filter()">Search</button>
+    </div>
+
+    <div class="centeredItemsOthers">
+        <button mat-raised-button (click)="getPart()">Refresh List</button>
+    </div> 
 </div>
 
 <table mat-table [dataSource]="dataSource" class="partTable">
