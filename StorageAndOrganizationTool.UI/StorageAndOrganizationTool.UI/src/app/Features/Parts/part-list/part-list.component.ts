@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit} from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, ViewChild, viewChild} from '@angular/core';
 import { PartService } from '../Services/partservice.service';
 import { PartDto } from '../../../Core/PartModels';
 import { map, take } from 'rxjs';
@@ -12,11 +12,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from "@angular/material/icon";
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-part-list',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, MatInputModule, FormsModule, MatFormFieldModule, MatIconModule],
+  imports: [MatTableModule, MatButtonModule, MatInputModule, FormsModule, MatFormFieldModule, MatIconModule, MatPaginatorModule],
   templateUrl: './part-list.component.html',
   styleUrl: './part-list.component.scss'
 })
@@ -29,9 +30,9 @@ export class PartListComponent implements OnInit {
 
   dataSource = new MatTableDataSource<PartDto>([]);
 
-  //filterString = new FormControl<string|null>('');
-
   filterString: string = '';
+
+  @ViewChild('paginator') paginator!: MatPaginator;
 
   dataSource$ = this.partService.getPartListObservable().pipe(
     takeUntilDestroyed(this.destroyRef),
@@ -93,5 +94,9 @@ export class PartListComponent implements OnInit {
 
   ngOnInit(): void {
     this.partService.getParts();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator
   }
 }
