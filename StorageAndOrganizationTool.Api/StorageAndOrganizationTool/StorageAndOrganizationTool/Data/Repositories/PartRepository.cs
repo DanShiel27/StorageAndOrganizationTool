@@ -19,6 +19,15 @@ namespace StorageAndOrganizationTool.Data.Repositories
 
         public async Task<Part?> AddPart(Part part) 
         {
+            //if part should have a room, make sure it exists
+            if (part.RoomId is not null)
+            {
+                var room = await _context.Rooms.FindAsync(part.RoomId);
+
+                if (room is null) { return null; }//trying to assign to a room that doesn't exist
+                part.Room = room;
+            }
+
             var result = await _context.Parts.AddAsync(part);
             await _context.SaveChangesAsync();
             return result.Entity;
@@ -26,10 +35,21 @@ namespace StorageAndOrganizationTool.Data.Repositories
 
         public async Task<bool> EditPart(int id, Part part)
         {
+            //make sure part exists
             var partToUpdate = await _context.Parts.FindAsync(id);
 
             if (partToUpdate is null) { return false; }
 
+            Room? possibleRoom = null;
+
+            //if part has a room, make sure it exists
+            if(part.RoomId is not null)
+            {
+                possibleRoom = await _context.Rooms.FindAsync(part.RoomId);
+
+                if (possibleRoom is null) { return false; }//trying to assign to a room that doesn't exist
+            }
+            
             partToUpdate.Id = part.Id;
             partToUpdate.Name = part.Name;
             partToUpdate.Description = part.Description;
@@ -40,11 +60,12 @@ namespace StorageAndOrganizationTool.Data.Repositories
             partToUpdate.BricklinkId = part.BricklinkId;
             partToUpdate.RebrickableId = part.RebrickableId;
 
+            partToUpdate.RoomId = part.RoomId;
+            partToUpdate.Room = possibleRoom;
+
             var result = await _context.SaveChangesAsync();
 
             return result == 1;
-
-           
         }
 
         public async Task<Boolean> DeletePart(int partId)
