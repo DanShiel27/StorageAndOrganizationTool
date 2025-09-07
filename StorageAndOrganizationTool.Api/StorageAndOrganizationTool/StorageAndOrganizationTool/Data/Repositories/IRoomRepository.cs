@@ -8,7 +8,7 @@ namespace StorageAndOrganizationTool.Data.Repositories
 
         Task<Room?> GetRoom(int id);
 
-        Task<Room?> AddPart(Room room);
+        Task<Room?> AddRoom(Room room);
 
         Task<bool> EditRoom(int id, Room room);
     }

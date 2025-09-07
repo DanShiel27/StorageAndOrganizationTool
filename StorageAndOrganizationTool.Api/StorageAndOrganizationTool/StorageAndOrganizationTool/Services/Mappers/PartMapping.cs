@@ -20,11 +20,11 @@ namespace StorageAndOrganizationTool.Services.Mappers
                 RebrickableId = entity.RebrickableId,
                 BricklinkId = entity.BricklinkId,
                 RoomId = entity.RoomId,
-                RoomName = entity.Room is null ? null : entity.Room.Name
+                RoomName = entity.Room?.Name
             };
         }
 
-        public static Part MapToPart(this PartDTO entity)
+        public static Part MapToDomain(this PartDTO entity)
         {
             return new Part
             {

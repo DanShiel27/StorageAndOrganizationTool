@@ -27,7 +27,7 @@ namespace StorageAndOrganizationTool.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPart(PartDTO partDto)
         {
-            var insertedPart = await _partsRepository.AddPart(partDto.MapToPart());
+            var insertedPart = await _partsRepository.AddPart(partDto.MapToDomain());
             if (insertedPart is not null) 
             {
                 var insertedDto = insertedPart.MapToDto();
@@ -43,7 +43,7 @@ namespace StorageAndOrganizationTool.Controllers
             {
                 return BadRequest();
             }
-            var isSuccess = await _partsRepository.EditPart(id, partDto.MapToPart());
+            var isSuccess = await _partsRepository.EditPart(id, partDto.MapToDomain());
 
             if (isSuccess) 
             {

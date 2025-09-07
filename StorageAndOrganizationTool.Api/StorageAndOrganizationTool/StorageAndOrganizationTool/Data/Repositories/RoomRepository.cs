@@ -11,7 +11,7 @@ namespace StorageAndOrganizationTool.Data.Repositories
             _context = context;
         }
 
-        public async Task<Room?> AddPart(Room room)
+        public async Task<Room?> AddRoom(Room room)
         {
             var result = _context.Rooms.Add(room);
             await _context.SaveChangesAsync();
@@ -24,7 +24,7 @@ namespace StorageAndOrganizationTool.Data.Repositories
 
             if (roomToUpdate is null) { return false; }
 
-            roomToUpdate.Id = room.Id;
+            //can't updated id 
             roomToUpdate.Name = room.Name;
             roomToUpdate.Description = room.Description;
 

@@ -11,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IPartRepository, PartRepository>();
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 
 
 builder.Services.AddDbContext<InMemoryDbContext>(options =>
