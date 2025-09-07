@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { PartDto } from '../../../Core/PartModels';
+import { PartDto } from '../../../Core/Models';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -49,7 +49,9 @@ export class EditPartComponent {
       height: this.partForm.value.height!,
       manufacturerId: this.partForm.value.manufacturerId!,
       rebrickableId: this.partForm.value.rebrickableId!,
-      bricklinkId: this.partForm.value.bricklinkId!
+      bricklinkId: this.partForm.value.bricklinkId!,
+      roomId: null,
+      roomName: null
     }
 
     //don't actually need take 1 here but keeping for readability

@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject} from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators} from '@angular/forms';
-import { PartDto } from '../../../Core/PartModels';
+import { PartDto } from '../../../Core/Models';
 import { PartService } from '../Services/partservice.service';
 import { tap, skip, } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -56,7 +56,9 @@ export class PartFormComponent {
       height: this.partForm.value.height!,
       manufacturerId: this.partForm.value.manufacturerId!,
       rebrickableId: this.partForm.value.rebrickableId!,
-      bricklinkId: this.partForm.value.bricklinkId!
+      bricklinkId: this.partForm.value.bricklinkId!,
+      roomId: null,
+      roomName: null
     }
 
     this.partService.addPart(Dto)

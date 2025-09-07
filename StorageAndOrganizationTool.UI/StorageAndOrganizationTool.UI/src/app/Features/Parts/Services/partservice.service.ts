@@ -1,6 +1,6 @@
 import { inject, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { BehaviorSubject, catchError, map, Observable, of, Subject, take, tap } from 'rxjs';
-import { PartDto } from '../../../Core/PartModels';
+import { PartDto } from '../../../Core/Models';
 import { PartDataAccessService } from './part-data-access.service';
 
 
