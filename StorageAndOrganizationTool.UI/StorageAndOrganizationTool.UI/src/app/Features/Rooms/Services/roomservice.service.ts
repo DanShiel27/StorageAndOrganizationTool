@@ -6,7 +6,7 @@ import { RoomDto } from '../../../Core/Models';
 @Injectable({
   providedIn: 'root'
 })
-export class RoomserviceService {
+export class RoomService {
 
   constructor() { }
   private roomDataAccess = inject(RoomDataAccessService);
