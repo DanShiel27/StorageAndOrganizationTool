@@ -17,4 +17,5 @@ export interface PartDto extends BaseDto {
 }
 
 export interface RoomDto extends BaseDto  {
+    pictureNumber?: number,
 }

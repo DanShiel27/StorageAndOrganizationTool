@@ -1,0 +1,24 @@
+<p>room-form works!</p>
+
+<form [formGroup]="roomForm" (ngSubmit)="addRoom()">
+    <mat-form-field class="formItem">
+                <mat-label>Name: </mat-label>
+                <input matInput formControlName="name" />
+            </mat-form-field>
+            
+    <mat-form-field class="formItem">
+        <mat-label>Description: </mat-label>
+        <input matInput formControlName="description"/>
+    </mat-form-field>
+
+    <!--keeping as a select for now, end idea is to have a couple of pictures think best way is a radio
+    -->
+    <mat-form-field class="formItem">
+        <mat-label>Picture: </mat-label>
+        <mat-select>
+            @for (picture of pictureList; track picture){
+                <mat-option [value]="picture">{{picture}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+</form>
