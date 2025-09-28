@@ -11,14 +11,25 @@
         <input matInput formControlName="description"/>
     </mat-form-field>
 
-    <!--keeping as a select for now, end idea is to have a couple of pictures think best way is a radio
-    -->
-    <mat-form-field class="formItem">
-        <mat-label>Picture: </mat-label>
-        <mat-select>
+    <mat-form-field class="pictureSelector">
+        <input matInput formControlName="pictureNumber" style="display:none"/>
+        <mat-radio-group formControlName="pictureNumber">
             @for (picture of pictureList; track picture){
-                <mat-option [value]="picture">{{picture}}</mat-option>
+                <mat-label class="pictureItem">
+                    <mat-radio-button [value]="picture">
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>Picture number: {{picture}}</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="/assets/RoomImage.jpg" alt="Picture of room">
+                        </mat-card>
+                    </mat-radio-button>
+                </mat-label>
             }
-        </mat-select>
+        </mat-radio-group>
     </mat-form-field>
+    
+    <div class="row">
+        <button mat-raised-button type="submit" class="submitButton">submit</button>
+    </div>
 </form>

@@ -7,12 +7,13 @@ import { skip, tap } from 'rxjs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSelect, MatSelectModule } from "@angular/material/select";
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-room-form',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelect, MatSelectModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatRadioModule],
   templateUrl: './room-form.component.html',
   styleUrl: './room-form.component.scss'
 })
@@ -50,11 +51,12 @@ export class RoomFormComponent {
       pictureNumber: this.roomForm.value.pictureNumber ?? 0
     }
 
-    this.roomService.addRoom(room);
+    console.log(room)
+    //this.roomService.addRoom(room);
     return true;
   }
 
   handleSubmit(result: boolean){
-    
+    //console.log(result)
   }
 }
