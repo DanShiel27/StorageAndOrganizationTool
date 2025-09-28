@@ -22,7 +22,7 @@ export class RoomFormComponent {
   private roomService = inject(RoomService);
   private destroyRef = inject(DestroyRef)
 
-  pictureList: number[] = [0, 1, 2]//TODO: going to move this somewhere else soon, Models.ts maybe?
+  pictureList: number[] = [1, 2, 3]//TODO: going to move this somewhere else soon, Models.ts maybe?
 
   roomForm = this.formBuilder.group({
     name: ['', Validators.required],
