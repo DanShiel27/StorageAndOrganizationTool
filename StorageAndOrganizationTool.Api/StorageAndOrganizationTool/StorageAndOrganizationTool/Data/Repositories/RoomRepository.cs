@@ -27,6 +27,7 @@ namespace StorageAndOrganizationTool.Data.Repositories
             //can't updated id 
             roomToUpdate.Name = room.Name;
             roomToUpdate.Description = room.Description;
+            roomToUpdate.PictureNumber = room.PictureNumber;
 
             var result = await _context.SaveChangesAsync();
 

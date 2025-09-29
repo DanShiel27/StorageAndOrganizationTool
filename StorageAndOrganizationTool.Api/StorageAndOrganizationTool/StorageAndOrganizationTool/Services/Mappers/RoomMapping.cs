@@ -11,7 +11,8 @@ namespace StorageAndOrganizationTool.Services.Mappers
             {
                 Id = entity.Id,
                 Name = entity.Name,
-                Description = entity.Description
+                Description = entity.Description,
+                PictureNumber = entity.PictureNumber
             };
         }
 
@@ -21,7 +22,8 @@ namespace StorageAndOrganizationTool.Services.Mappers
             {
                 Id = entity.Id,
                 Name = entity.Name,
-                Description = entity.Description
+                Description = entity.Description,
+                PictureNumber = entity.PictureNumber
             };
         }
     }
