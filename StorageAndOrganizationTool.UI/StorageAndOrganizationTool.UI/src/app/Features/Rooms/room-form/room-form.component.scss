@@ -57,3 +57,7 @@
 ::ng-deep .mdc-radio {
     display: none !important; /* Use !important to ensure override */
 }
+
+.selected{
+    border-style: solid;
+}

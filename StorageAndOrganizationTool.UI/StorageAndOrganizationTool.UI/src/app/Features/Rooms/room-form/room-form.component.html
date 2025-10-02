@@ -19,9 +19,13 @@
     <div class="row">
         <mat-form-field class="pictureSelector">
             <input matInput formControlName="pictureNumber" style="display:none"/>
-            <mat-radio-group class="pictureContainer" formControlName="pictureNumber">
-                @for (picture of pictureList; track picture){
-                    <mat-label class="pictureItem">
+            <mat-radio-group 
+            class="pictureContainer" 
+            formControlName="pictureNumber"
+            (change)="radioChanged($event)"
+            >
+                <!-- @for (picture of pictureList; track picture){
+                    <mat-label class="pictureItem" [class]="pictureSignal()">
                         <mat-radio-button [value]="picture">
                             <mat-card>
                                 <mat-card-header class="pictureTitle">
@@ -31,7 +35,41 @@
                             </mat-card>
                         </mat-radio-button>
                     </mat-label>
-                }
+                } -->
+                <mat-label class="pictureItem" [class]="picture1Selected()">
+                    <mat-radio-button [value]="1">
+                        <mat-card>
+                            <mat-card-header class="pictureTitle">
+                                <mat-card-title>Picture 1</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="/assets/RoomImage.jpg" alt="Picture of room">
+                        </mat-card>
+                    </mat-radio-button>
+                </mat-label>
+
+                <mat-label class="pictureItem" [class]="picture2Selected()">
+                    <mat-radio-button [value]="2">
+                        <mat-card>
+                            <mat-card-header class="pictureTitle">
+                                <mat-card-title>Picture 2</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="/assets/RoomImage.jpg" alt="Picture of room">
+                        </mat-card>
+                    </mat-radio-button>
+                </mat-label>
+
+                <mat-label class="pictureItem" [class]="picture3Selected()">
+                    <mat-radio-button [value]="3">
+                        <mat-card>
+                            <mat-card-header class="pictureTitle">
+                                <mat-card-title>Picture 3</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="/assets/RoomImage.jpg" alt="Picture of room">
+                        </mat-card>
+                    </mat-radio-button>
+                </mat-label>
+
+
             </mat-radio-group>
         </mat-form-field>
     </div>
