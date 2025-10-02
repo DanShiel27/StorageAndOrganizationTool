@@ -18,6 +18,11 @@
         <td mat-cell *matCellDef="let Room">{{Room.description}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="pictureNumber">
+        <th mat-header-cell *matHeaderCellDef>Picture Number</th>
+        <td mat-cell *matCellDef="let Room">{{Room.pictureNumber}}</td>
+    </ng-container>
+
     <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef>Edit</th>
         <td mat-cell *matCellDef="let Room">

@@ -18,7 +18,7 @@ export class RoomListComponent implements OnInit {
   private roomService = inject(RoomService);
   private destroyRef = inject(DestroyRef);
 
-  displayedColumns = ["id", "name", "description", "edit"];
+  displayedColumns = ["id", "name", "description", "pictureNumber", "edit"];
 
   dataSource = new MatTableDataSource<RoomDto>([]);
 

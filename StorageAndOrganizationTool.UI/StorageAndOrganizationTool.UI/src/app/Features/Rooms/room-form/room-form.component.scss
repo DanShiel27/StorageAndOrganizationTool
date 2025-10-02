@@ -1,4 +1,5 @@
 .wrapper{
+    margin: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -27,16 +28,32 @@
 
 
 .pictureSelector{
-    width: 100%;
+    width: 90%;
+    // border-radius: 5px;
+    // border-style: solid;
+    background-color: #3f4948;
 }
 
 .pictureContainer{
+    //padding: 2%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+   
 }
 
 .pictureTitle{
     text-align: center;
     margin: auto;
+}
+
+.pictureItem{
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+    //width: 20%;
+}
+
+::ng-deep .mdc-radio {
+    display: none !important; /* Use !important to ensure override */
 }
