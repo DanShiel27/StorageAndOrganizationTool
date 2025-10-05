@@ -36,9 +36,9 @@
                         </mat-radio-button>
                     </mat-label>
                 } -->
-                <mat-label class="pictureItem" [class]="picture1Selected()">
+                <mat-label class="pictureItem" >
                     <mat-radio-button [value]="1">
-                        <mat-card>
+                        <mat-card [class]="picture1Selected()">
                             <mat-card-header class="pictureTitle">
                                 <mat-card-title>Picture 1</mat-card-title>
                             </mat-card-header>
@@ -47,10 +47,10 @@
                     </mat-radio-button>
                 </mat-label>
 
-                <mat-label class="pictureItem" [class]="picture2Selected()">
+                <mat-label class="pictureItem">
                     <mat-radio-button [value]="2">
-                        <mat-card>
-                            <mat-card-header class="pictureTitle">
+                        <mat-card [class]="picture2Selected()">
+                            <mat-card-header class="pictureTitle" >
                                 <mat-card-title>Picture 2</mat-card-title>
                             </mat-card-header>
                             <img mat-card-image src="/assets/RoomImage.jpg" alt="Picture of room">
@@ -58,9 +58,9 @@
                     </mat-radio-button>
                 </mat-label>
 
-                <mat-label class="pictureItem" [class]="picture3Selected()">
+                <mat-label class="pictureItem">
                     <mat-radio-button [value]="3">
-                        <mat-card>
+                        <mat-card [class]="picture3Selected()">
                             <mat-card-header class="pictureTitle">
                                 <mat-card-title>Picture 3</mat-card-title>
                             </mat-card-header>
