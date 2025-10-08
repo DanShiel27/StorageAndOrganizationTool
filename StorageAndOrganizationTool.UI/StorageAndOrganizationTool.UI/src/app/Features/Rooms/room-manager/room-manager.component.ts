@@ -16,8 +16,8 @@ export class RoomManagerComponent {
 
 addRoom() {
   const dialogRef = this.dialog.open(RoomFormComponent, {
-    height: '80%',
-    width: '80%',
+    height: '80vh',
+    width: '80vw',
     maxHeight: '80vw',
     maxWidth: '80vw'
   })
