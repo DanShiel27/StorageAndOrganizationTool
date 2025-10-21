@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-room-manager',
   standalone: true,
-  imports: [RoomListComponent, RoomFormComponent, MatButtonModule],
+  imports: [RoomListComponent, MatButtonModule],
   templateUrl: './room-manager.component.html',
   styleUrl: './room-manager.component.scss'
 })

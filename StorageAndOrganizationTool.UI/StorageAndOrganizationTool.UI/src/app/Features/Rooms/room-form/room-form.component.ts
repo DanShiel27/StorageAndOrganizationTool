@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioChange, MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-room-form',
@@ -22,17 +23,18 @@ export class RoomFormComponent {
   private formBuilder = inject(FormBuilder);
   private roomService = inject(RoomService);
   private destroyRef = inject(DestroyRef)
+  readonly dialogRef = inject(MatDialogRef<RoomFormComponent>);
 
   pictureList: number[] = [1, 2, 3]//TODO: going to move this somewhere else soon, Models.ts maybe?
 
-  picture1Selected = signal('selected');
+  picture1Selected = signal('');
   picture2Selected = signal('');
   picture3Selected = signal('');
 
   roomForm = this.formBuilder.group({
     name: ['', Validators.required],
     description: ['', Validators.required],
-    pictureNumber: [1]
+    pictureNumber: [0]
   })
 
   isAdded$ = this.roomService.getIsAddedObservable().pipe(
@@ -56,11 +58,11 @@ export class RoomFormComponent {
       pictureNumber: this.roomForm.value.pictureNumber ?? 1
     }
 
-    console.log(room)
-    //this.roomService.addRoom(room);
+    this.roomService.addRoom(room);
     return true;
   }
 
+  //this applies an html attribute to one of the selectted pictures and remvoes from others
   radioChanged($event: MatRadioChange) {
     //https://v17.angular.io/guide/class-binding
     if($event.value === 1){
@@ -81,6 +83,9 @@ export class RoomFormComponent {
   }
 
   handleSubmit(result: boolean){
-    //console.log(result)
+    if(result){
+      this.dialogRef.close();
+     
+    }
   }
 }

@@ -11,6 +11,12 @@
             <input matInput formControlName="description"/>
         </mat-form-field>
     </div>
+
+    <div class="row">
+        @if(this.roomForm.value.pictureNumber === 0){
+            <h3>Please select a picture</h3>
+        }
+    </div>
     
     <div class="row">
         <mat-form-field class="pictureSelector">

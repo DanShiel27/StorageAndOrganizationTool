@@ -28,12 +28,16 @@ export class RoomService {
     })
   }
 
-  public addRoom(room: RoomDto){
+  public addRoom(room: RoomDto) {
     this.roomDataAccess.addRoom(room).pipe(
       tap(insertedRoom =>{
         if(insertedRoom && insertedRoom.id! > 0){
           const prevList = this.roomSubject$.value;
           this.roomSubject$.next([...prevList, insertedRoom])
+          this.isAddedSubject$.next(true)
+        }
+        else{
+          this.isAddedSubject$.next(false)
         }
       })
     ).subscribe();
