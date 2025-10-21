@@ -5,7 +5,8 @@ namespace StorageAndOrganizationTool.Services.Mappers
 {
     public static class PartMapping
     {
-        public static PartDTO MapToPartDto(this Part entity)
+
+        public static PartDTO MapToDto(this Part entity)
         {
             return new PartDTO
             {
@@ -17,11 +18,13 @@ namespace StorageAndOrganizationTool.Services.Mappers
                 Height = entity.Height,
                 ManufacturerId = entity.ManufacturerId,
                 RebrickableId = entity.RebrickableId,
-                BricklinkId = entity.BricklinkId
+                BricklinkId = entity.BricklinkId,
+                RoomId = entity.RoomId,
+                RoomName = entity.Room?.Name
             };
         }
 
-        public static Part MapToPart(this PartDTO entity)
+        public static Part MapToDomain(this PartDTO entity)
         {
             return new Part
             {
@@ -33,7 +36,9 @@ namespace StorageAndOrganizationTool.Services.Mappers
                 Height = entity.Height,
                 ManufacturerId = entity.ManufacturerId,
                 RebrickableId = entity.RebrickableId,
-                BricklinkId = entity.BricklinkId
+                BricklinkId = entity.BricklinkId,
+                RoomId = entity.RoomId,
+                //TODO figure out a better way to set the navigation property
             };
         }
     }

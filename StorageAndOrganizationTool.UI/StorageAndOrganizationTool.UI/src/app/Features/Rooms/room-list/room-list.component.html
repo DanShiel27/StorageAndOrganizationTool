@@ -1,0 +1,35 @@
+<h2>Room List</h2>
+
+<button mat-raised-button (click)="getRooms()">Refresh Room List</button>
+
+<table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let Room">{{Room.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let Room">{{Room.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let Room">{{Room.description}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="pictureNumber">
+        <th mat-header-cell *matHeaderCellDef>Picture Number</th>
+        <td mat-cell *matCellDef="let Room">{{Room.pictureNumber}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>Edit</th>
+        <td mat-cell *matCellDef="let Room">
+            <button mat-raised-button (click)="editRoom(Room)">Edit</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

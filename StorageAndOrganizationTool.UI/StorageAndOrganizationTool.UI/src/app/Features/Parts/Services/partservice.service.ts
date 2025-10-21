@@ -1,9 +1,11 @@
-import { inject, Injectable, Signal, signal, WritableSignal } from '@angular/core';
-import { BehaviorSubject, catchError, map, Observable, of, Subject, take, tap } from 'rxjs';
-import { PartDto } from '../../../Core/PartModels';
+import { inject, Injectable } from '@angular/core';
+import { BehaviorSubject, map, Observable, of, tap } from 'rxjs';
+import { PartDto } from '../../../Core/Models';
 import { PartDataAccessService } from './part-data-access.service';
 
-
+/*
+This services acts as a singleton service that serves to maintain part state throughout the application
+*/
 
 @Injectable({
   providedIn: 'root'

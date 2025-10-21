@@ -1,0 +1,72 @@
+<form class="wrapper" [formGroup]="roomForm" (ngSubmit)="addRoom()">
+
+    <div class="row">
+        <mat-form-field class="rowItem">
+            <mat-label>Name: </mat-label>
+            <input matInput formControlName="name" />
+        </mat-form-field>
+            
+        <mat-form-field class="rowItem">
+            <mat-label>Description: </mat-label>
+            <input matInput formControlName="description"/>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        @if(this.roomForm.value.pictureNumber === 0){
+            <h3>Please select a picture</h3>
+        }
+    </div>
+    
+    <div class="row">
+        <mat-form-field class="pictureSelector">
+            <input matInput formControlName="pictureNumber" style="display:none"/>
+            <mat-radio-group 
+            class="pictureContainer" 
+            formControlName="pictureNumber"
+            (change)="radioChanged($event)"
+            >
+                <mat-label class="pictureItem" >
+                    <mat-radio-button [value]="1">
+                        <mat-card [class]="picture1Selected()">
+                            <mat-card-header class="pictureTitle">
+                                <mat-card-title>Picture 1</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="/assets/RoomImage.jpg" alt="Picture of room">
+                        </mat-card>
+                    </mat-radio-button>
+                </mat-label>
+
+                <mat-label class="pictureItem">
+                    <mat-radio-button [value]="2">
+                        <mat-card [class]="picture2Selected()">
+                            <mat-card-header class="pictureTitle" >
+                                <mat-card-title>Picture 2</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="/assets/RoomImage.jpg" alt="Picture of room">
+                        </mat-card>
+                    </mat-radio-button>
+                </mat-label>
+
+                <mat-label class="pictureItem">
+                    <mat-radio-button [value]="3">
+                        <mat-card [class]="picture3Selected()">
+                            <mat-card-header class="pictureTitle">
+                                <mat-card-title>Picture 3</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="/assets/RoomImage.jpg" alt="Picture of room">
+                        </mat-card>
+                    </mat-radio-button>
+                </mat-label>
+
+
+            </mat-radio-group>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <div class="rowItem">
+            <button mat-raised-button type="submit" class="submitButton">submit</button>
+        </div>
+    </div>
+</form>

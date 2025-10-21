@@ -10,5 +10,9 @@ namespace StorageAndOrganizationTool.Models.DTO
         public int ManufacturerId { get; set; }
         public int RebrickableId { get; set; }
         public int BricklinkId { get; set; }
+
+        public int? RoomId { get; set; }
+
+        public string? RoomName { get; set; }
     }
 }

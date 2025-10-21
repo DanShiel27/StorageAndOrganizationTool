@@ -14,11 +14,15 @@ import { Router } from '@angular/router';
 export class NavBarComponent {
   private router = inject(Router);
 
-  navigateParts() {
+  navigateToRooms(){
+    this.router.navigate(['/rooms'])
+  }
+
+  navigateToParts() {
     this.router.navigate(['/parts'])
   }
   
-  navigateHome() {
-  this.router.navigate(['/home'])
+  navigateToHome() {
+    this.router.navigate(['/home'])
   }
 }

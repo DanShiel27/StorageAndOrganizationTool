@@ -18,7 +18,7 @@ namespace StorageAndOrganizationTool.Controllers
         {
             var parts = await _partsRepository.GetParts();
             var partDtos = parts
-                .Select(Part => Part.MapToPartDto())
+                .Select(Part => Part.MapToDto())
                 .ToList();
 
             return Ok(partDtos);
@@ -27,9 +27,13 @@ namespace StorageAndOrganizationTool.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPart(PartDTO partDto)
         {
-            var insertedPart = await _partsRepository.AddPart(partDto.MapToPart());
-            var insertedDto = insertedPart.MapToPartDto();
-            return Ok(insertedDto);
+            var insertedPart = await _partsRepository.AddPart(partDto.MapToDomain());
+            if (insertedPart is not null) 
+            {
+                var insertedDto = insertedPart.MapToDto();
+                return Ok(insertedDto);
+            }
+            return BadRequest();
         }
 
         [HttpPut("{id}")]
@@ -39,7 +43,7 @@ namespace StorageAndOrganizationTool.Controllers
             {
                 return BadRequest();
             }
-            var isSuccess = await _partsRepository.EditPart(id, partDto.MapToPart());
+            var isSuccess = await _partsRepository.EditPart(id, partDto.MapToDomain());
 
             if (isSuccess) 
             {

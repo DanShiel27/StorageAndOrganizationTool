@@ -10,5 +10,6 @@ namespace StorageAndOrganizationTool.Data
         }
 
         public DbSet<Part> Parts { get; set; }
+        public DbSet<Room> Rooms { get; set; }
     }
 }

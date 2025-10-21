@@ -15,4 +15,8 @@ export class HomeComponent {
   navigateToParts(){
     this.router.navigate(['/parts']);
   }
+
+  navigateToRooms() {
+    this.router.navigate(['/rooms'])
+  }
 }

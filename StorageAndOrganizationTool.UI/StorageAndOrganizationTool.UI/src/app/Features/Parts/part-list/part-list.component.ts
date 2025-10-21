@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject, OnInit, ViewChild, viewChild} from '@angular/core';
 import { PartService } from '../Services/partservice.service';
-import { PartDto } from '../../../Core/PartModels';
+import { PartDto } from '../../../Core/Models';
 import { map, take } from 'rxjs';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
