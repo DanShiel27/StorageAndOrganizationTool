@@ -34,7 +34,7 @@ export class RoomFormComponent {
   roomForm = this.formBuilder.group({
     name: ['', Validators.required],
     description: ['', Validators.required],
-    pictureNumber: [0]
+    pictureNumber: [0, Validators.min(1)]
   })
 
   isAdded$ = this.roomService.getIsAddedObservable().pipe(
@@ -64,7 +64,6 @@ export class RoomFormComponent {
 
   //this applies an html attribute to one of the selectted pictures and remvoes from others
   radioChanged($event: MatRadioChange) {
-    //https://v17.angular.io/guide/class-binding
     if($event.value === 1){
       this.picture1Selected.set('selected');
       this.picture2Selected.set('');
@@ -85,7 +84,6 @@ export class RoomFormComponent {
   handleSubmit(result: boolean){
     if(result){
       this.dialogRef.close();
-     
     }
   }
 }

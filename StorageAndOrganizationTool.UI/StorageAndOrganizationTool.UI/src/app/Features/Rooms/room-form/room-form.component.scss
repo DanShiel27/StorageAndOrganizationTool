@@ -42,8 +42,6 @@
 .submitButton{
     width: 10vw;
     height: 7vh;
-    background-color:  colors.$primary;
-    color: black;
     font-size: 150%;
 }
 
@@ -86,6 +84,11 @@ mat-card{
 .selected{
     background-color: colors.$primary;
     color: black;
+}
+
+h3{
+    color: white;
+    text-align: center;
 }
 
 
